@@ -2,13 +2,11 @@ from django.db import models
 from datetime import datetime, date, time, timedelta
 import calendar
 
-print("Fechas:")
+
 # Asigna fecha actual
 fecha1 = date.today()   
-print("\tFecha1:", fecha1)
 # Suma a la fecha actual 2 días
 fecha2 = date.today() + timedelta(days=10)
-print("\tFecha2:", fecha2)
 
 
 # Create your models here.
