@@ -1,0 +1,9 @@
+django
+djangorestframework
+django-filter
+djangorestframework-jwt
+pillow
+gunicorn
+django-heroku
+psycopg2-binary
+django-cors-headers
