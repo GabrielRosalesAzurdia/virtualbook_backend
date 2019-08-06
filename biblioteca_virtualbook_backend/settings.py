@@ -169,5 +169,5 @@ JWT_AUTH = {
 
 AUTH_USER_MODEL = 'accounts.User'
 
-# import django_heroku
-# django_heroku.settings(locals())
+import django_heroku
+django_heroku.settings(locals())
