@@ -13,6 +13,7 @@ class UserSerializer(serializers.ModelSerializer):
             'last_name',
             'password',
             'credit_card',
+            'imagen',
             'address_1',
             'address_2',
             'city',
