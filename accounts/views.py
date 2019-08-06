@@ -44,4 +44,4 @@ def customerRegister(request):
         form.save()
         return Response( str(True) )
     else:
-        return Response( str(False) )
+        return Response( {"respuesta":str(False),"formulario": str(form)}  )
