@@ -25,6 +25,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     day_phone = models.CharField(max_length=250)
     eve_phone = models.CharField(max_length=250)
     mob_phone = models.CharField(max_length=250)
+    image =  models.ImageField(upload_to="perfil_imagenes", blank=True,null = True)
 
     objects = UserManager()
 
