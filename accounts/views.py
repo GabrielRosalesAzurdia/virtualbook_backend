@@ -41,12 +41,13 @@ class CustomerView(viewsets.ModelViewSet):
 @api_view(['PUT'])
 @permission_classes((AllowAny, ))  
 def customerRegister(request):
+    requet_fields = request.FILES["file"]
     form = UserCreationForm(request.data)
     if form.is_valid():
         form.save()
         return Response( str(True) )
     else:
-        return Response( {"respuesta":str(False),"formulario": str(form)} )
+        return Response( {"respuesta":str(False),"formulario": str(form)}, "data":str(requet_fields) )
 
 class CustomerViewTotal(viewsets.ModelViewSet):
     queryset = User.objects.all()
