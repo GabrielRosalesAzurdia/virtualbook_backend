@@ -45,3 +45,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return f'{self.email}'
+
+    def nameFile(instance, filename):
+        return '/'.join(['images', str(instance.name), filename])
