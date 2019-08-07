@@ -22,8 +22,8 @@ class CustomerView(viewsets.ModelViewSet):
         if request.method == "GET":
             queryset = User.objects.all()
             user = get_object_or_404(queryset, email=request.user.email)
-            serializer = UserSerializer(user)
-            return Response(serializer.data,context={"request": request})
+            serializer = UserSerializer(user,context={"request": request})
+            return Response(serializer.data)
 
         #Actualiza un usuario
         if request.method == "PUT":
