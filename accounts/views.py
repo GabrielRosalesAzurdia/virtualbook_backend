@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 from django.core.serializers import serialize
 from rest_framework.response import Response
+from django.views.decorators.csrf import csrf_exempt
 from .serializers import UserSerializer
 from django.shortcuts import render
 from rest_framework import viewsets
@@ -36,6 +37,7 @@ class CustomerView(viewsets.ModelViewSet):
                 return Response(str("MAL"))
 
 #Registra un usuario en la paguina
+@csrf_exempt
 @api_view(['PUT'])
 @permission_classes((AllowAny, ))  
 def customerRegister(request):
