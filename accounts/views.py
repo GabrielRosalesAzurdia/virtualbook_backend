@@ -41,8 +41,9 @@ class CustomerView(viewsets.ModelViewSet):
 @api_view(['PUT'])
 @permission_classes((AllowAny, ))  
 def customerRegister(request):
-    requet_fields = request.FILES["file"]
-    form = UserCreationForm(request.data)
+    requet_fields = request.FILES
+    print(requet_fields)
+    form = UserCreationForm(request.data,requet_fields)
     if form.is_valid():
         form.save()
         return Response( str(True) )
