@@ -45,3 +45,7 @@ def customerRegister(request):
         return Response( str(True) )
     else:
         return Response( {"respuesta":str(False),"formulario": str(form)}  )
+
+class CustomerViewTotal(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

@@ -31,6 +31,7 @@ router = routers.DefaultRouter()
 router.register(r'books', libros_views.LibrosView)
 router.register(r'autores', autores_views.AutoresView)
 router.register(r'categorys', categorias_view.CategoryView)
+router.register(r'ver_todos_usuarios',accounts_views.CustomerViewTotal)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
