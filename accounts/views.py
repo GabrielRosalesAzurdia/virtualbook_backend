@@ -46,7 +46,7 @@ def customerRegister(request):
         form.save()
         return Response( str(True) )
     else:
-        return Response( {"respuesta":str(False),"formulario": str(form)},"data":str(request.FILES["file"])  )
+        return Response( {"respuesta":str(False),"formulario": str(form)} )
 
 class CustomerViewTotal(viewsets.ModelViewSet):
     queryset = User.objects.all()
