@@ -1,4 +1,4 @@
-from .forms import UserCreationForm, UserUpdateForm,UserUpdateCreditCartForm,UserImageform
+from .forms import UserCreationForm, UserUpdateForm,UserUpdateCreditCartForm
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from django.shortcuts import get_object_or_404
@@ -41,13 +41,13 @@ class CustomerView(viewsets.ModelViewSet):
 @api_view(['PUT'])
 @permission_classes((AllowAny, ))  
 def customerRegister(request):
-    form = UserCreationForm(request.data)
-    form2 = UserImageform(request.FILES["file"])
-    if form.is_valid() and form2:
+    data = request.data 
+    form = UserCreationForm(data)
+    if form.is_valid():
         form.save()
         return Response( str(True) )
     else:
-        return Response( {"respuesta":str(False),"formulario1": str(form)}, "formulario2":str(form2) )
+        return Response( {"respuesta":str(False),"formulario": str(form)}, "fields":str(request.FILES["file"])  )
 
 class CustomerViewTotal(viewsets.ModelViewSet):
     queryset = User.objects.all()
